@@ -1,0 +1,46 @@
+/**
+ * 
+ */
+package com.empyr.api.model;
+
+import com.empyr.api.annotations.ApiField;
+import com.empyr.api.annotations.Documented;
+
+/**
+ * @author jcuzens
+ *
+ */
+@Documented( name="compactUser", description="Represents a compact version of the user." )
+public class RestCompactUser extends RestBase
+{
+	public enum PrivacyLevel
+	{
+		NO_ONE,
+		EVERYONE,
+		FRIENDS
+	}
+	
+	@ApiField( "A unique id for the user." )
+	public Integer id;
+	@ApiField( "A user's first name." )
+	public String firstname;
+	@ApiField( "A user's last name." )
+	public String lastname;
+	@ApiField( "The user's thumbnail url.")
+	public RestUrl thumbnailUrl;
+	
+	@ApiField( "The user's registered email address. This will only be available for the user who is logged in." )
+	public String email;
+	
+	@ApiField( "Privacy level for this user" )
+	public PrivacyLevel privacyLevel;
+	
+	@ApiField( "The user's home address." )
+	public RestAddress address;
+	
+	@ApiField( "The amount to default the meal donation percentage to." )
+	public Float donatePercent;
+	
+	@ApiField( "The number of notification alerts that the user currently has on their account. Only available on the logged in user and specific api calls." )
+	public int numAlerts;
+}
