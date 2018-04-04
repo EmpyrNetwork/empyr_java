@@ -2,7 +2,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.empyr</groupId>
 	<artifactId>client</artifactId>
-	<version>0.9.1-SNAPSHOT</version>
+	<version>0.9.2-SNAPSHOT</version>
 	<name>Empyr Java Library</name>
 	<description>A simple library for interfacing with the Empyr API.</description>
 	<packaging>jar</packaging>
@@ -30,7 +30,7 @@
 		<plugins>
 			<plugin>
 				<artifactId>maven-release-plugin</artifactId>
-				<version>2.4.1</version>
+				<version>2.5</version>
 				<configuration>
 					<useReleaseProfile>false</useReleaseProfile>
 					<releaseProfiles>release</releaseProfiles>
