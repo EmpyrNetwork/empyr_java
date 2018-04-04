@@ -139,13 +139,13 @@ public class EmpyrClient
 	/**
 	 * Signs up a user with the Empyr backend.
 	 * 
-	 * @param firstname
-	 * @param lastname
-	 * @param email
-	 * @param postalCode
-	 * @param password
-	 * @param referralCode
-	 * @param additionalParams
+	 * @param firstname The first name of the user
+	 * @param lastname The last name of the user
+	 * @param email The email address or usertoken for the user. Needs to be in email form.
+	 * @param postalCode The postal code of the user.
+	 * @param password The password for the user.
+	 * @param referralCode The referralcode the user signed up with.
+	 * @param additionalParams Any additional params to pass to the API.
 	 * @return
 	 */
 	public RestResponse<RestUser> usersSignup(
@@ -187,7 +187,6 @@ public class EmpyrClient
 	}
 	
 	/**
-	 * @param userId
 	 * @return
 	 */
 	public RestResponse<RestUser> uploadPhoto(
@@ -202,7 +201,7 @@ public class EmpyrClient
 	}	
 	
 	/**
-	 * @param email
+	 * @param email The user to lookup by email or usertoken.
 	 * @return
 	 */
 	public RestResponse<RestUser> usersLookup(
