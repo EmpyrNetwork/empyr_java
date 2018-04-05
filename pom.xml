@@ -46,6 +46,10 @@
 			<name>empyrnetwork-empyrnetwork</name>
 			<url>https://api.bintray.com/maven/empyrnetwork/empyrnetwork/${bintree.package}/;publish=1</url>
 		</repository>
+		<snapshotRepository>
+			<id>ojo-snapshots</id>
+			<url>https://oss.jfrog.org/artifactory/oss-snapshot-local</url>
+		</snapshotRepository>
 	</distributionManagement>
 
 	<build>
