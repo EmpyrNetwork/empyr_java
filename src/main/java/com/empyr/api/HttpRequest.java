@@ -19,16 +19,16 @@ public class HttpRequest
 	private String endPoint;
 	private Map<String,Object> requestParams = new HashMap<String,Object>();
 	
-    public HttpRequest( MethodType method, String endPoint )
-    {
-            this.method = method;
-            this.endPoint = endPoint;
-    }
+	public HttpRequest( MethodType method, String endPoint )
+	{
+		this.method = method;
+		this.endPoint = endPoint;
+	}
 
-    public static HttpRequest createRequest( MethodType get, String endpoint )
-    {
-            return new HttpRequest( get, endpoint );
-    }
+	public static HttpRequest createHttpRequest( MethodType get, String endpoint )
+	{
+		return new HttpRequest( get, endpoint );
+	}
 	
 	public HttpRequest addParams( Map<String,Object> params ) 
 	{
