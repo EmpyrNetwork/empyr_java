@@ -1,5 +1,6 @@
 
 [![Build Status](https://travis-ci.org/EmpyrNetwork/empyr_java.svg)](https://travis-ci.org/EmpyrNetwork/empyr_java.svg)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 # Empyr Java Library
 
