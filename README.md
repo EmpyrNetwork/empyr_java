@@ -1,3 +1,6 @@
+
+[![Build Status](https://travis-ci.org/EmpyrNetwork/empyr_java.svg)](https://travis-ci.org/EmpyrNetwork/empyr_java.svg)
+
 # Empyr Java Library
 
 The Empyr Java library provides integration access to the Empyr API.
