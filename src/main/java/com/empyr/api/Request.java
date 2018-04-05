@@ -17,19 +17,15 @@ import com.empyr.api.util.TypeReference;
  *
  * @param <T> The type of the requested response which would be serialized out of the API call.
  */
-public class Request<T>
+public class Request<T> extends HttpRequest
 {
-	private MethodType method;
-	private String endPoint;
-	private Map<String,Object> requestParams = new HashMap<String,Object>();
-	private Map<String,Object> expected = new HashMap<String,Object>();
 	private RestResponse<T> response;
 	private boolean requiresToken = false;
+	private Map<String,Object> expected = new HashMap<String,Object>();
 	
 	protected Request( MethodType t, String endPoint, boolean requiresToken )
 	{
-		this.method = t;
-		this.endPoint = endPoint;
+		super( t, endPoint );
 		this.requiresToken = requiresToken;
 	}
 	
@@ -55,80 +51,14 @@ public class Request<T>
 	
 	public Request<T> addParams( Map<String,Object> params ) 
 	{
-		if( params == null || params.size() == 0 )
-		{
-			return this;
-		}
-		
-		for( Map.Entry<String, Object> entry : params.entrySet() )
-		{
-			if( entry.getValue() != null )
-			{
-				Object value = entry.getValue();
-				if( !(value instanceof FileUpload) && !(value.getClass().isArray()) )
-				{
-					value = String.valueOf( value );
-				}
-				
-				requestParams.put( entry.getKey(), value );
-			}
-		}
-		
+		super.addParams( params );
 		return this;
 	}
 	
 	public Request<T> addParams( Object ... params )
 	{
-		if( params == null || params.length <= 0 )
-		{
-			return this;
-		}
-		
-		if( params.length % 2 != 0 )
-		{
-			throw new RuntimeException( "Uneven param keys to values.");
-		}
-		
-		for( int i = 0; i < params.length; i+=2 )
-		{
-			// Skip any null value entries.
-			if( params[i+1] != null )
-			{
-				Object value = params[i + 1];
-				if( !(value instanceof FileUpload) && !(value.getClass().isArray()))
-				{
-					value = String.valueOf( value );
-				}
-				
-				requestParams.put( String.valueOf( params[i] ), value );
-			}			
-		}
-		
+		super.addParams( params );
 		return this;
-	}
-
-	/**
-	 * @return the method
-	 */
-	public MethodType getMethod()
-	{
-		return method;
-	}
-
-	/**
-	 * @return the endPoint
-	 */
-	public String getEndPoint()
-	{
-		return endPoint;
-	}
-
-	/**
-	 * @return the requestParams
-	 */
-	public Map<String, Object> getRequestParams()
-	{
-		return requestParams;
 	}
 	
 	/**

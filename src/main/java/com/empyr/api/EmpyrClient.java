@@ -3,10 +3,10 @@
  */
 package com.empyr.api;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Vector;
 
 import com.empyr.api.exceptions.LoginException;
 import com.empyr.api.model.OAuthResponse;
@@ -36,30 +36,32 @@ import com.empyr.api.util.TypeReference;
  */
 public class EmpyrClient
 {
+	private static volatile EmpyrClient mainInstance = null;
+	
 	private static final String OAUTH_ENDPOINT = "/oauth/token";
 	private static final String API_ENDPOINT = "/api/v2";
 	private String host = "https://api.mogl.com";
 	private String clientId;
 	private String clientSecret;
 	private String accessToken;
+	private String userToken;
+
 	private int autoRetryTimes = -1;
 	
 	private HttpRequestUtil requestUtil = new CommonsHttpRequestUtil();
 	private RequestAdapter requestAdapter = new JacksonRequestAdapter();
 	
-	private List<ClientListener> listeners = new Vector<ClientListener>();
+	private List<ClientListener> listeners = new ArrayList<ClientListener>();
+	
+	public EmpyrClient( String clientId )
+	{
+		this.clientId = clientId;
+	}
 	
 	public EmpyrClient( String clientId, String clientSecret )
 	{
 		this.clientId = clientId;
 		this.clientSecret = clientSecret;
-	}
-	
-	public EmpyrClient( String clientId, String clientSecret, String accessToken )
-	{
-		this.clientId = clientId;
-		this.clientSecret = clientSecret;
-		this.accessToken = accessToken;
 	}
 	
 	public void addListener( ClientListener cl )
@@ -86,6 +88,14 @@ public class EmpyrClient
 	public String getClientSecret()
 	{
 		return clientSecret;
+	}
+	
+	/**
+	 * @return the userToken
+	 */
+	public String getUserToken()
+	{
+		return userToken;
 	}
 	
 	/**
@@ -135,6 +145,77 @@ public class EmpyrClient
 	{
 		return host + API_ENDPOINT;
 	}
+	
+	/**
+	 * Convenience method for returning a previously initialized EmpyrClient.
+	 * 
+	 * @return Return a previously initialized EmpyrClient.
+	 */
+	public static EmpyrClient getInstance()
+	{
+		if( mainInstance == null )
+		{
+			throw new RuntimeException( "Empyr client instance should have been previously initialized through a getInstance call that had the client id." );
+		}
+		
+		return mainInstance;
+	}
+
+	/**
+	 * Initializes a main EmpyrClient instance with the provided client
+	 * id. This is the most common way that the Empyr library would be used
+	 * when in a mobile environment since the clientSecret should only be
+	 * on the server side. 
+	 * 
+	 * @param clientId The client id of the application.
+	 * 
+	 * @return Returns the EmpyrClient main instance.
+	 */
+	public static EmpyrClient getInstance( 
+			String clientId
+		)
+	{
+		if( mainInstance == null )
+		{
+			mainInstance = new EmpyrClient( clientId );
+		}
+		
+		return mainInstance;
+	}
+	
+	/**
+	 * Initializes a main EmpyrClient instance with the provided client id
+	 * and client secret. Note that this would only be called from a controlled
+	 * environment (e.g. server and not mobile) because of the exposure of 
+	 * the client secret.
+	 * 
+	 * @param clientId The client id of the application.
+	 * @param clientSecret The client secret of the application.
+	 * @return Returns the EmpyrClient main instance.
+	 */
+	public static EmpyrClient getInstance( 
+			String clientId,
+			String clientSecret
+		)
+	{
+		if( mainInstance == null )
+		{
+			mainInstance = new EmpyrClient( clientId, clientSecret );
+		}
+		
+		return mainInstance;
+	}
+	
+	/**
+	 * Identifies the user by providing the userToken.
+	 * 
+	 * @param userToken The userToken for the user.
+	 */
+	public void identify( String userToken )
+	{
+		this.userToken = userToken;
+	}
+	
 	
 	/**
 	 * Signs up a user with the Empyr backend.
@@ -557,7 +638,7 @@ public class EmpyrClient
 		return or;
 	}
 	
-	private void authorizationError( String error_description )
+	private synchronized void authorizationError( String error_description )
 	{
 		for( ClientListener cl : listeners )
 		{
@@ -565,7 +646,7 @@ public class EmpyrClient
 		}
 	}
 	
-	private void connectionError( String error )
+	private synchronized void connectionError( String error )
 	{
 		for( ClientListener cl : listeners )
 		{
@@ -573,7 +654,7 @@ public class EmpyrClient
 		}		
 	}
 	
-	private void validationError( String global, Map<String,String> errorDetails )
+	private synchronized void validationError( String global, Map<String,String> errorDetails )
 	{
 		for( ClientListener cl : listeners )
 		{
@@ -581,7 +662,7 @@ public class EmpyrClient
 		}		
 	}
 	
-	private void unexpectedError( String error )
+	private synchronized void unexpectedError( String error )
 	{
 		for( ClientListener cl : listeners )
 		{
