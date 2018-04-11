@@ -1,5 +1,10 @@
 
-[![Build Status](https://travis-ci.org/EmpyrNetwork/empyr_java.svg)](https://travis-ci.org/EmpyrNetwork/empyr_java.svg)
+[![Build Status](https://travis-ci.org/EmpyrNetwork/empyr_java.svg)](https://travis-ci.org/EmpyrNetwork/empyr_java)
+
+[![Maven metadata URI](https://img.shields.io/maven-metadata/v/http/central.maven.org/maven2/com/empyr/client/maven-metadata.xml.svg)](http://central.maven.org/maven2/com/empyr/client/maven-metadata.xml)
+
+[![Download](https://api.bintray.com/packages/empyrnetwork/empyrnetwork/empyr_java/images/download.svg)](https://bintray.com/empyrnetwork/empyrnetwork/empyr_java/_latestVersion)
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 # Empyr Java Library
