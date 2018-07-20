@@ -429,6 +429,19 @@ public class EmpyrClient
 		
 		return executeRequest( r );
 	}
+
+	public RestResponse<Boolean> cardsRemoveById(
+			String cardId,
+			String userToken
+		)
+	{
+		new AssertionError( cardId != null );
+
+		Request<Boolean> r = Request.<Boolean> createRequest( MethodType.POST, String.format("/cards/%s/delete", cardId), true, userToken )
+						.expects( "removed", Boolean.class );
+
+		return executeRequest( r );
+	}
 	
 	public RestResponse<Map<String,String>> getCategories()
 	{
