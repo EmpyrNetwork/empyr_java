@@ -438,7 +438,7 @@ public class EmpyrClient
 		new AssertionError( cardId != null );
 
 		Request<Boolean> r = Request.<Boolean> createRequest( MethodType.POST, String.format("/cards/%s/delete", cardId), true, userToken )
-						.expects( "removed", Boolean.class );
+						.expects( "result", Boolean.class );
 
 		return executeRequest( r );
 	}
