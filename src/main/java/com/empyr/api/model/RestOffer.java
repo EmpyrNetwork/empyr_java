@@ -30,6 +30,15 @@ public class RestOffer extends RestBase
 	@ApiField( "The maximum possible reward value for any given redemption." )
 	public Double rewardMax;
 	
+	@ApiField( "The type of the marketing fee." )
+	public OfferRewardType feeType;
+	
+	@ApiField( "The marketing fee value." )
+	public Double feeValue;
+	
+	@ApiField( "The marketing fee maximum." )
+	public Double feeMax;
+	
 	@ApiField( "The fine print represents a textual description of the offer requirements." )
 	public String finePrint;
 	
