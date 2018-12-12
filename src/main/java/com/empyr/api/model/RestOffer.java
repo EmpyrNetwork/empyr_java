@@ -3,6 +3,8 @@
  */
 package com.empyr.api.model;
 
+import java.util.Date;
+
 import com.empyr.api.annotations.ApiField;
 import com.empyr.api.annotations.Documented;
 
@@ -29,6 +31,9 @@ public class RestOffer extends RestBase
 	
 	@ApiField( "The maximum possible reward value for any given redemption." )
 	public Double rewardMax;
+	
+	@ApiField( "The date the that reward or fee last changed on. Only used on dynamic offers. The value will also be null if it is dynamic but the reward has never been changed since it was created." )
+	public Date dateRewardChanged;
 	
 	@ApiField( "The type of the marketing fee." )
 	public OfferRewardType feeType;

@@ -77,4 +77,7 @@ public class RestOfferDetails extends RestBase
 	
 	@ApiField( "If specified this allows an offer to apply after the offer has expired. Typically this will be the same as the offer end date." )
 	public Date					maxRedeemDate;
+	
+	@ApiField( "Whether the offer is a dynamic offer (meaning the reward/fee can change). If it is changed the dateRewardChanged will be set to the last time the reward changed." )
+	public boolean				dynamic = false;
 }

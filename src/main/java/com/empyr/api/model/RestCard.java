@@ -42,4 +42,7 @@ public class RestCard extends RestBase
 	public boolean synchronizationState;
 	@ApiField( "The type of the credit card." )
 	public CardType cardType;
+	
+	@ApiField( "The user who owns the card. Only populated CARD_ADD/CARD_REMOVE webhook events." )
+	public RestCompactUser user;
 }

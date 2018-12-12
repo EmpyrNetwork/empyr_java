@@ -18,7 +18,8 @@ public class RestRedemption extends RestBase
 	public enum RedeemState {
 		PENDING,		// Offer pending redemption on future purchases (referral fees may have been rewarded).
 		COMPLETED,		// Offer has been fulfilled and cashback paid.
-		REVERSED		// Offer was reversed because it no longer met the criteria.
+		REVERSED,		// Offer was reversed because it no longer met the criteria.
+		UNQUALIFIED		// Offer didn't qualify (still possible to have fees).
 	}
 	
 	@ApiField( "The id of the redemption." )
