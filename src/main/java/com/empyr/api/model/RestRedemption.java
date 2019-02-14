@@ -25,7 +25,7 @@ public class RestRedemption extends RestBase
 	@ApiField( "The id of the redemption." )
 	public Integer id;
 	
-	@ApiField( "The state of the redemption (can be PENDING, COMPLETED, or REVERSED). PENDING would only be the case on a multi purchase offer.")
+	@ApiField( "The state of the redemption (can be UNQUALIFIED, PENDING, COMPLETED, or REVERSED). PENDING would only be the case on a multi purchase offer.")
 	public RedeemState state;
 	
 	@ApiField( "The date the redemption was added." )
