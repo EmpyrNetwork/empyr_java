@@ -105,4 +105,8 @@ public class RestBusiness extends RestCompactBusiness
 	
 	@ApiField( value="Current time (business local time). Expressed as HHMM" )
 	public String businessLocalTime;
+	
+	@ApiField( value="The chain that this business belongs to." )
+	public RestChain chain;
+	
 }
