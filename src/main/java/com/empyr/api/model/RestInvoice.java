@@ -12,7 +12,7 @@ import com.empyr.api.annotations.Documented;
  * @author jarrodcuzens
  *
  */
-@Documented( name="invocie", description="Invoices that would be generated against a merchant/account." )
+@Documented( name="invoice", description="Invoices that would be generated against a merchant/account." )
 public class RestInvoice
 {
 	@ApiField( "The id of the invoice" )
