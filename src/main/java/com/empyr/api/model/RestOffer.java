@@ -64,4 +64,7 @@ public class RestOffer extends RestBase
 	
 	@ApiField( "This will only be populated when: 1) There is a loggedInUser or userToken. 2) It is a search OR a direct business lookup." )
 	public RestOfferLink link;
+	
+	@ApiField( "This will only be populated when returning offer links for a user." )
+	public RestCompactBusiness venue;
 }
