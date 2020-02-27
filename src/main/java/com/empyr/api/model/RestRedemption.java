@@ -51,4 +51,7 @@ public class RestRedemption extends RestBase
 	
 	@ApiField( "The id of the offer that triggered this redemption." )
 	public Integer offerId;
+
+	@ApiField( "The post dine survey link (if applicable)." )
+	public String surveyLink;
 }
