@@ -9,8 +9,6 @@ import java.lang.reflect.Type;
  * base EmpyrClient.
  * 
  * @author jcuzens
- *
- * @param <T>
  */
 public abstract class TypeReference<T> implements Comparable<TypeReference<T>>
 {

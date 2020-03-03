@@ -227,7 +227,7 @@ public class EmpyrClient
 	 * @param password The password for the user.
 	 * @param referralCode The referralcode the user signed up with.
 	 * @param additionalParams Any additional params to pass to the API.
-	 * @return
+	 * @return The user object.
 	 */
 	public RestResponse<RestUser> usersSignup(
 				String firstname,
@@ -254,8 +254,8 @@ public class EmpyrClient
 	}
 	
 	/**
-	 * @param userId
-	 * @return
+	 * @param userId The userId to lookup the user.
+	 * @return The user object.
 	 */
 	public RestResponse<RestUser> usersGet(
 			String userId
@@ -268,7 +268,8 @@ public class EmpyrClient
 	}
 	
 	/**
-	 * @return
+	 * @param fu The photo to upload to the user.
+	 * @return The user object.
 	 */
 	public RestResponse<RestUser> uploadPhoto(
 			FileUpload fu
@@ -283,7 +284,7 @@ public class EmpyrClient
 	
 	/**
 	 * @param email The user to lookup by email or usertoken.
-	 * @return
+	 * @return The user object.
 	 */
 	public RestResponse<RestUser> usersLookup(
 			String email
@@ -297,9 +298,9 @@ public class EmpyrClient
 	}
 	
 	/**
-	 * @param userId
-	 * @param userToken
-	 * @return
+	 * @param userId The userId to get transactions.
+	 * @param userToken The userToken for the user.
+	 * @return A list of transactions for the user.
 	 */
 	public RestResponse<RestResults<RestTransaction>> usersGetTransactions(
 			Integer userId,
@@ -392,8 +393,8 @@ public class EmpyrClient
 	}
 	
 	/**
-	 * @param cardNumber
-	 * @return
+	 * @param cardNumber The card number to lookup.
+	 * @return True if the card exists.
 	 */
 	public RestResponse<Boolean> cardsExists(
 			String cardNumber
