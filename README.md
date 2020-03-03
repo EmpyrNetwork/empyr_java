@@ -1,6 +1,6 @@
 
 [![Build Status](https://travis-ci.org/EmpyrNetwork/empyr_java.svg)](https://travis-ci.org/EmpyrNetwork/empyr_java)
-[![Maven Central](https://img.shields.io/maven-central/v/com.empyr/client)](http://central.maven.org/maven2/com/empyr/client/maven-metadata.xml)
+[![Maven Central](https://img.shields.io/maven-central/v/com.empyr/client)](https://search.maven.org/artifact/com.empyr/client)
 [![Download](https://api.bintray.com/packages/empyrnetwork/empyrnetwork/empyr_java/images/download.svg)](https://bintray.com/empyrnetwork/empyrnetwork/empyr_java/_latestVersion)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
