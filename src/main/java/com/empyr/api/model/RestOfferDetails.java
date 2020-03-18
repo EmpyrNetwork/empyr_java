@@ -28,13 +28,13 @@ public class RestOfferDetails extends RestBase
 	
 	@ApiField( "The date that the offer started or will start." )
 	public Date					startDate;
-	@ApiField( "The date that the offer will end." )
+	@ApiField( value="The date that the offer will end.", nullable=true )
 	public Date					endDate;
 	
-	@ApiField( "The maximum number of times that an offer can be linked across all users." )
+	@ApiField( value="The maximum number of times that an offer can be linked across all users.", nullable=true )
 	public Integer				maxActivations;
 	
-	@ApiField( "The minimum spend necessary for the offer to apply." )
+	@ApiField( value="The minimum spend necessary for the offer to apply.", nullable=true )
 	public Integer				minPurchaseAmount;
 	
 	@ApiField( "Whether this offer has a schedule associated with it. Schedule type determines how the schedule applies." )
@@ -47,35 +47,35 @@ public class RestOfferDetails extends RestBase
 	public boolean				hasDefault = false;
 	// Need the schedules
 	
-	@ApiField( "The maximum number of times users can redeem the offer." )
+	@ApiField( value="The maximum number of times users can redeem the offer.", nullable=true )
 	public Integer				maxRedemptions;
-	@ApiField( "The minimum time (in seconds) in which an offer could be redeemed. For example, a user can't redeem more than once an hour." )
+	@ApiField( value="The minimum time (in seconds) in which an offer could be redeemed. For example, a user can't redeem more than once an hour.", nullable=true )
 	public Integer				minRedemptionInterval;
 	
-	@ApiField( "The maximum number of times a user can redeem an offer within the specified userRedemptionInterval." )
+	@ApiField( value="The maximum number of times a user can redeem an offer within the specified userRedemptionInterval.", nullable=true )
 	public Integer				maxUserRedemptionsPerInterval;
 	
-	@ApiField( "The maximum qualified spend that can be applied to an offer per interval (for example $500 of spend will be rewarded)." )
+	@ApiField( value="The maximum qualified spend that can be applied to an offer per interval (for example $500 of spend will be rewarded).", nullable=true )
 	public Double				maxQualifiedUserSpendPerInterval;
 	
-	@ApiField( "The interval period as applied to the interval type. For example, if this was 2 and the interval type was DAY then this would mean 2 days." )
+	@ApiField( value="The interval period as applied to the interval type. For example, if this was 2 and the interval type was DAY then this would mean 2 days.", nullable=true )
 	public Integer				userRedemptionRenewalInterval;
 	@ApiField( "The interval type in which the redemption window renews. Can be DAY, WEEK, MONTH. If WEEK or MONTH then it's applied for a calendar month/week." )
 	public OfferInterval		userRedemptionRenewalIntervalType = OfferInterval.DAY;
 	
-	@ApiField( "The minimum number of purchases necessary for the offer to be redeemed.")
+	@ApiField( value="The minimum number of purchases necessary for the offer to be redeemed.", nullable=true)
 	public Integer				minPurchases;
-	@ApiField( "The minimum amount of time (in seconds) between purchases in a multi-purchase offer." )
+	@ApiField( value="The minimum amount of time (in seconds) between purchases in a multi-purchase offer.", nullable=true )
 	public Integer				purchaseMinInterval;
-	@ApiField( "The maximum amount of time (in seconds) between purchases in a multi-purchase offer." )
+	@ApiField( value="The maximum amount of time (in seconds) between purchases in a multi-purchase offer.", nullable=true )
 	public Integer				purchaseMaxInterval;
 	@ApiField( "Whether the spend thresholds for the offer are cumulative over multiple purcahses or indvidually applied per purchase." )
 	public boolean				cumulative = false;
 	
-	@ApiField( "The budget for the offer. Once the budget has been exceeded the offer will no longer apply." )
+	@ApiField( value="The budget for the offer. Once the budget has been exceeded the offer will no longer apply.", nullable=true )
 	public Integer				budget = 0;
 	
-	@ApiField( "If specified this allows an offer to apply after the offer has expired. Typically this will be the same as the offer end date." )
+	@ApiField( value="If specified this allows an offer to apply after the offer has expired. Typically this will be the same as the offer end date.", nullable=true )
 	public Date					maxRedeemDate;
 	
 	@ApiField( "Whether the offer is a dynamic offer (meaning the reward/fee can change). If it is changed the dateRewardChanged will be set to the last time the reward changed." )

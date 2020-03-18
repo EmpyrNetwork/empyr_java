@@ -27,9 +27,9 @@ public class RestFundraiser extends RestBase
 	public Double goalAmount;
 	@ApiField( "A thumbnail of the fundraiser." )
 	public RestUrl thumbnailUrl;
-	@ApiField( "The website for the fundraiser." )
+	@ApiField( value="The website for the fundraiser.", nullable=true )
 	public String website;
-	@ApiField( "A date when the fundraiser would end." )
+	@ApiField( value="A date when the fundraiser would end.", nullable=true )
 	public Date endDate;
 	@ApiField( "The organizer of the fundraiser." )
 	public RestCompactUser organizer;

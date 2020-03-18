@@ -50,10 +50,10 @@ public class RestTransaction extends RestBase
 	@ApiField( "The id of the card that made the transaction." )
 	public long cardId;
 	
-	@ApiField( "The settlement/clearing amount of the transaction." )
+	@ApiField( value="The settlement/clearing amount of the transaction.", nullable=true )
 	public Double clearingAmount;
 	
-	@ApiField( "The authorization amount of the transaction." )
+	@ApiField( value="The authorization amount of the transaction.", nullable=true )
 	public Double authorizationAmount;
 	
 	@ApiField( "The last 4 of the card that made the transaction." )

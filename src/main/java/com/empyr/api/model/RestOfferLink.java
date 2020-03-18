@@ -21,7 +21,7 @@ public class RestOfferLink
 	@ApiField( "The date that the link was created." )
 	public Date dateAdded;
 	
-	@ApiField( "The date that the link was last activated." )
+	@ApiField( value="The date that the link was last activated.", nullable=true )
 	public Date lastActivationDate;
 	
 	@ApiField( "The status of the linkage [ACTIVE,INACTIVE]." )

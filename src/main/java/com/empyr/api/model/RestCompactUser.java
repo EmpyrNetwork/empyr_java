@@ -22,9 +22,9 @@ public class RestCompactUser extends RestBase
 	
 	@ApiField( "A unique id for the user." )
 	public Integer id;
-	@ApiField( "A user's first name." )
+	@ApiField( value="A user's first name.", nullable=true )
 	public String firstname;
-	@ApiField( "A user's last name." )
+	@ApiField( value="A user's last name.", nullable=true )
 	public String lastname;
 	@ApiField( "The user's thumbnail url.")
 	public RestUrl thumbnailUrl;

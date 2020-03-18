@@ -13,7 +13,7 @@ import com.empyr.api.annotations.Documented;
 @Documented( name="address", description="Represents an address." )
 public class RestAddress extends RestBase
 {
-	@ApiField( "The street address such as 9645 Scranton Road." )
+	@ApiField( value="The street address such as 9645 Scranton Road.", nullable=true )
 	public String streetAddress;
 	@ApiField( "The postalcode such as 92009." )
 	public String postalCode;

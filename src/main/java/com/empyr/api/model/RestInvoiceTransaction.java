@@ -27,7 +27,7 @@ public class RestInvoiceTransaction
 	@ApiField( "The date that the transaction was run. " )
 	public Date dateAdded;
 	
-	@ApiField( "The transaction error code" )
+	@ApiField( value="The transaction error code", nullable=true )
 	public String transactionErrorCode;
 	
 	@ApiField( "The type of the transaction (e.g. PAYMENT or REFUND)" )

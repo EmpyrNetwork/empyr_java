@@ -31,7 +31,7 @@ public class RestRedemption extends RestBase
 	@ApiField( "The date the redemption was added." )
 	public Date dateAdded;
 	
-	@ApiField( "The date that the redemption was reversed. Only supplied when the transaction is in fact reversed." )
+	@ApiField( value="The date that the redemption was reversed. Only supplied when the transaction is in fact reversed.", nullable=true )
 	public Date dateReversed;
 	
 	@ApiField( "The cashback amount rewarded to the consumer." )

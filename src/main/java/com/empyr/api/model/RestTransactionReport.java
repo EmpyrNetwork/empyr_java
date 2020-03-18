@@ -24,7 +24,7 @@ public class RestTransactionReport extends RestBase
 	@ApiField( "Cashback billed to merchants." )
 	public double cashbackBilled = 0;
 	
-	@ApiField( "Most recent transaction date." )
+	@ApiField( value="Most recent transaction date.", nullable=true )
 	public Date mostRecentTxDate;
 	
 	@ApiField( "The total number of unique customers." )

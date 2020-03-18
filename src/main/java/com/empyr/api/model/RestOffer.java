@@ -32,7 +32,7 @@ public class RestOffer extends RestBase
 	@ApiField( "The maximum possible reward value for any given redemption." )
 	public Double rewardMax;
 	
-	@ApiField( "The date the that reward or fee last changed on. Only used on dynamic offers. The value will also be null if it is dynamic but the reward has never been changed since it was created." )
+	@ApiField( value="The date the that reward or fee last changed on. Only used on dynamic offers. The value will also be null if it is dynamic but the reward has never been changed since it was created.", nullable=true )
 	public Date dateRewardChanged;
 	
 	@ApiField( "The type of the marketing fee." )
@@ -47,7 +47,7 @@ public class RestOffer extends RestBase
 	@ApiField( "The fine print represents a textual description of the offer requirements." )
 	public String finePrint;
 	
-	@ApiField( "If present, this image must be displayed next to the offer." )
+	@ApiField( value="If present, this image must be displayed next to the offer.", nullable=true )
 	public String imageUrl;
 	
 	@ApiField( "Whether or not the offer is a click-to-activate style offer which would require a button and a call to the /user/activate endpoint." )

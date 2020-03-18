@@ -8,7 +8,7 @@ import com.empyr.api.annotations.Documented;
 @Documented( name="fundraiserUserTotal", description="Represents summary information about user/fundraiser donation activity." )
 public class RestFundraiserUserTotal extends RestBase
 {
-	@ApiField( "The date/month of the user total. Only relevant if queried this way." )
+	@ApiField( value="The date/month of the user total. Only relevant if queried this way.", nullable=true )
 	public Date dateAdded;
 	@ApiField( "The user that donated." )
 	public RestCompactUser user;

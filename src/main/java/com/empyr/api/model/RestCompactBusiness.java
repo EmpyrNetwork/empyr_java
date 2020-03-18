@@ -28,7 +28,7 @@ public class RestCompactBusiness extends RestBase
 	@ApiField( "This only applies to searching and returns the distance from the source of the search." )
 	public Float distance;
 	
-	@ApiField( "The phone number for the venue.")
+	@ApiField( value="The phone number for the venue.", nullable=true)
 	public String phone;
 	
 	@ApiField( "The thumbnail url that is the logo of this venue." )
@@ -40,7 +40,7 @@ public class RestCompactBusiness extends RestBase
 	@ApiField( "The number of ratings for the venue." )
 	public Integer ratingCount;
 	
-	@ApiField( "The yelp foreign id of the venue." )
+	@ApiField( value="The yelp foreign id of the venue.", nullable=true )
 	public String yelpId;
 	
 	@ApiField( "Address of the venue." )

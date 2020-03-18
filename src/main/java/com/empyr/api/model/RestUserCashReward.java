@@ -24,6 +24,6 @@ public class RestUserCashReward
 	@ApiField( "The amount of the reward" )
 	public double amount;
 	
-	@ApiField( "The description of the reward" )
+	@ApiField( value="The description of the reward", nullable=true )
 	public String description;
 }

@@ -27,7 +27,7 @@ public class RestInvoice
 	@ApiField( "Date invoice generated" )
 	public Date dateGenerated;
 	
-	@ApiField( "Date the invoice was closed" )
+	@ApiField( value="Date the invoice was closed", nullable=true )
 	public Date dateClosed;
 	
 	@ApiField( "The date the invoice will be billed." )
