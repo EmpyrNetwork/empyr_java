@@ -29,7 +29,7 @@ public class RestCompactUser extends RestBase
 	@ApiField( "The user's thumbnail url.")
 	public RestUrl thumbnailUrl;
 	
-	@ApiField( "The user's registered email address. This will only be available for the user who is logged in." )
+	@ApiField( value="The user's registered email address. This will only be available for the user who is logged in.", optional=true )
 	public String email;
 	
 	@ApiField( "Privacy level for this user" )
@@ -41,6 +41,6 @@ public class RestCompactUser extends RestBase
 	@ApiField( "The amount to default the meal donation percentage to." )
 	public Float donatePercent;
 	
-	@ApiField( "The number of notification alerts that the user currently has on their account. Only available on the logged in user and specific api calls." )
+	@ApiField( value="The number of notification alerts that the user currently has on their account. Only available on the logged in user and specific api calls.", optional=true )
 	public int numAlerts;
 }

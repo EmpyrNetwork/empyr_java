@@ -81,6 +81,6 @@ public class RestOfferDetails extends RestBase
 	@ApiField( "Whether the offer is a dynamic offer (meaning the reward/fee can change). If it is changed the dateRewardChanged will be set to the last time the reward changed." )
 	public boolean				dynamic = false;
 	
-	@ApiField( "The targeting segment which the user must belong to in order for a transaction to match." )
+	@ApiField( value="The targeting segment which the user must belong to in order for a transaction to match.", optional=true )
 	public String				targetingSegment;
 }

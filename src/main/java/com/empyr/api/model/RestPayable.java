@@ -24,7 +24,7 @@ public class RestPayable extends RestBase
 	@ApiField( "The date of the payment." )
 	public Date date;
 	
-	@ApiField( "The payment description" )
+	@ApiField( value="The payment description", optional=true )
 	public String paymentDescription;
 	
 	@ApiField( "The payment account details" )
@@ -33,7 +33,7 @@ public class RestPayable extends RestBase
 	@ApiField( "The status of the payment" )
 	public String paymentStatus;
 	
-	@ApiField( "The card that the payment was paid (except if the payment was made to a different reward type)." )
+	@ApiField( value="The card that the payment was paid (except if the payment was made to a different reward type).", optional=true )
 	public RestCard card;
 	
 	@ApiField( "The user that is being payed out." )

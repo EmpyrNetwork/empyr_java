@@ -27,7 +27,7 @@ public class RestOfferLink
 	@ApiField( "The status of the linkage [ACTIVE,INACTIVE]." )
 	public String status;
 	
-	@ApiField( "The offer associated with the link. To avoid circular references this will not be provided when being accessed from an offer.link." )
+	@ApiField( value="The offer associated with the link. To avoid circular references this will not be provided when being accessed from an offer.link.", optional=true )
 	public RestOffer offer;
 }
 

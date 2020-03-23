@@ -25,7 +25,7 @@ public class RestCompactBusiness extends RestBase
 	@ApiField( "The longitude of the venue." )
 	public double longitude;
 	
-	@ApiField( "This only applies to searching and returns the distance from the source of the search." )
+	@ApiField( value="This only applies to searching and returns the distance from the source of the search.", optional=true )
 	public Float distance;
 	
 	@ApiField( value="The phone number for the venue.", nullable=true)
@@ -49,6 +49,6 @@ public class RestCompactBusiness extends RestBase
 	@ApiField( "The application id that enrolled this business." )
 	public Integer applicationId;
 	
-	@ApiField( "The business token that was assigned to the business by the partner. Will only be supplied on partner's merchants." )
+	@ApiField( value="The business token that was assigned to the business by the partner. Will only be supplied on partner's merchants.", optional=true )
 	public String businessToken;
 }

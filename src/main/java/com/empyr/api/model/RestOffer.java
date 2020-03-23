@@ -59,12 +59,12 @@ public class RestOffer extends RestBase
 	@ApiField( "Has the more detailed offer criteria. This is useful for partners that apply the criteria themselves or want to build custom UIs to represent the offer criteria." )
 	public RestOfferDetails details;
 	
-	@ApiField( "Convenience field that determines if the schedule (if defined) would yield a reward if the customer transacted at this moment." )
+	@ApiField( value="Convenience field that determines if the schedule (if defined) would yield a reward if the customer transacted at this moment.", optional=true )
 	public Boolean excludedBySchedule;
 	
-	@ApiField( "This will only be populated when: 1) There is a loggedInUser or userToken. 2) It is a search OR a direct business lookup." )
+	@ApiField( value="This will only be populated when: 1) There is a loggedInUser or userToken. 2) It is a search OR a direct business lookup.", optional=true )
 	public RestOfferLink link;
 	
-	@ApiField( "This will only be populated when returning offer links for a user." )
+	@ApiField( value="This will only be populated when returning offer links for a user.", optional=true )
 	public RestCompactBusiness venue;
 }

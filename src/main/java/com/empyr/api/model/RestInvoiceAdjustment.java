@@ -19,7 +19,7 @@ public class RestInvoiceAdjustment
 	@ApiField( "The description of the adjustment" )
 	public String description;
 	
-	@ApiField( "The id of the invoice this adjustment is applied to." )
+	@ApiField( value="The id of the invoice this adjustment is applied to.", optional=true )
 	public Integer invoiceId;
 	
 	@ApiField( "The amount of the adjustment" )

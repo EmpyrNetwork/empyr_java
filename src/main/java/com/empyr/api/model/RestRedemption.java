@@ -43,15 +43,15 @@ public class RestRedemption extends RestBase
 	@ApiField( "The amount of qualified spend applied to the redemption." )
 	public double qualifiedSpend = 0;
 	
-	@ApiField( "The amount of publisher commission earned." )
+	@ApiField( value="The amount of publisher commission earned.", optional=true )
 	public double publisherCommission = 0;
 	
-	@ApiField( "The amount of reseller commission earned." )
+	@ApiField( value="The amount of reseller commission earned.", optional=true )
 	public double resellerCommission = 0;
 	
 	@ApiField( "The id of the offer that triggered this redemption." )
 	public Integer offerId;
 
-	@ApiField( "The post dine survey link (if applicable)." )
+	@ApiField( value="The post dine survey link (if applicable).", optional=true )
 	public String surveyLink;
 }

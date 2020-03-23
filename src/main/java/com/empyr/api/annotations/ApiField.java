@@ -19,4 +19,5 @@ public @interface ApiField
 	Class<?>[] type() default {};
 	boolean required() default true;
 	boolean nullable() default false;
+	boolean optional() default false;
 }

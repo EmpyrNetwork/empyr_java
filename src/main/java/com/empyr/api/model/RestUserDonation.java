@@ -21,13 +21,13 @@ public class RestUserDonation extends RestBase
 	@ApiField( "The string representation for how long ago the transaction occurred." )
 	public String age;
 	
-	@ApiField( "The transaction that this donation come from." )
+	@ApiField( value="The transaction that this donation come from.", optional=true )
 	public RestTransaction transaction;
 	
-	@ApiField( "The jackpot that this donation came from." )
+	@ApiField( value="The jackpot that this donation came from.", optional=true )
 	public RestBusinessUserTotal jackpot;
 	
-	@ApiField( "The fundraiser that this donation is for." )
+	@ApiField( value="The fundraiser that this donation is for.", optional=true )
 	public RestFundraiser fundraiser;
 	
 	@ApiField( "The cash value of the donation." )

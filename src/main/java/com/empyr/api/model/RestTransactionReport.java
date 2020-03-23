@@ -15,7 +15,7 @@ import com.empyr.api.annotations.Documented;
 @Documented( name="transactionReport", description="Returns a summary of aggregate information over transactions." )
 public class RestTransactionReport extends RestBase
 {
-	@ApiField( "The value of the grouped by property." )
+	@ApiField( value="The value of the grouped by property.", optional=true )
 	public String groupedByValue;
 	
 	@ApiField( "Cashback awarded to customers." )

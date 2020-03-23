@@ -19,7 +19,7 @@ import com.empyr.api.model.RestCard.CardType;
 @Documented( name="venue", description="Represents a venue/location/business. Includes all fields of the compactVenue." )
 public class RestBusiness extends RestCompactBusiness
 {	
-	@ApiField( "The category of the business." )
+	@ApiField( value="The category of the business.", optional=true )
 	public String primaryCategory;	
 	
 	@ApiField( "A list of all the business categories." )
@@ -31,10 +31,10 @@ public class RestBusiness extends RestCompactBusiness
 	@ApiField( "The website of the venue." )
 	public String website;
 	
-	@ApiField( "A description of the venue." )
+	@ApiField( value="A description of the venue.", optional=true )
 	public String description;
 	
-	@ApiField( "Represents the price range of the venue." )
+	@ApiField( value="Represents the price range of the venue.", optional=true )
 	public String priceRange;
 	
 	@ApiField( "The menu for the venue." )
@@ -76,7 +76,7 @@ public class RestBusiness extends RestCompactBusiness
 	@ApiField( "Timezone offset from GMT." )
 	public int timezoneOffset;
 	
-	@ApiField( "A simple representation of the hours of operation" )
+	@ApiField( value="A simple representation of the hours of operation", optional=true )
 	public Map<String,String> simpleHours = new LinkedHashMap<String,String>();
 	
 	@ApiField( "The default reward percentage for this business." )
@@ -106,7 +106,7 @@ public class RestBusiness extends RestCompactBusiness
 	@ApiField( value="Current time (business local time). Expressed as HHMM" )
 	public String businessLocalTime;
 	
-	@ApiField( value="The chain that this business belongs to." )
+	@ApiField( value="The chain that this business belongs to.", optional=true )
 	public RestChain chain;
 	
 }

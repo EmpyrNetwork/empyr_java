@@ -41,7 +41,7 @@ public class RestTransaction extends RestBase
 	@ApiField( "The date that Mogl processed the transaction; Note that this will reset on CLEAR." )
 	public Date dateProcessed;
 	
-	@ApiField( "Compact details about the venue." )
+	@ApiField( value="Compact details about the venue.", nullable=true )
 	public RestCompactBusiness venue;
 	
 	@ApiField( "Compact details about the user." )
@@ -59,7 +59,7 @@ public class RestTransaction extends RestBase
 	@ApiField( "The last 4 of the card that made the transaction." )
 	public String last4;
 	
-	@ApiField( "Duplication source -- Only provided when the transaction has been removed as a duplicate." )
+	@ApiField( value="Duplication source, only provided when the transaction has been removed as a duplicate.", optional=true )
 	public String duplicationSource;
 	
 	@ApiField( value="The redemptions that were applied to this transaction.", type=RestRedemption.class )

@@ -13,7 +13,7 @@ import com.empyr.api.annotations.Documented;
 @Documented( name="statsSummary", description="Represents stats report summary." )
 public class RestStatsSummary extends RestBase
 {
-	@ApiField( "The value of the grouped by option." )
+	@ApiField( value="The value of the grouped by option.", optional=true )
 	public String groupedByValue;
 	
 	@ApiField( "The type of stat collected." )

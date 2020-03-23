@@ -22,6 +22,6 @@ public class RestCategory extends RestBase
 	@ApiField( "The alias of the category." )
 	public String alias;
 	
-	@ApiField( "A liast of the parent aliases." )
+	@ApiField( value="A liast of the parent aliases.", optional=true )
 	public String[] parents;
 }
