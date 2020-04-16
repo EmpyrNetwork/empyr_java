@@ -55,8 +55,9 @@
 	<build>
 		<plugins>
 			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-release-plugin</artifactId>
-				<version>2.5</version>
+				<version>3.0.0-M1</version>
 				<configuration>
 					<useReleaseProfile>true</useReleaseProfile>
 					<releaseProfiles>release</releaseProfiles>
@@ -66,7 +67,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
-				<version>3.1.1</version>
+				<version>3.2.0</version>
 				<configuration>
 					<source>1.6</source>
 				</configuration>
@@ -81,7 +82,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-source-plugin</artifactId>
-				<version>3.2.0</version>
+				<version>3.2.1</version>
 				<executions>
 					<execution>
 						<goals>
@@ -97,7 +98,7 @@
 						<descriptorRef>jar-with-dependencies</descriptorRef>
 					</descriptorRefs>
 				</configuration>
-				<version>2.3</version>
+				<version>3.2.0</version>
 				<executions>
 					<execution>
 						<id>tar-assembly</id>
