@@ -43,4 +43,7 @@ public class RestCompactUser extends RestBase
 	
 	@ApiField( value="The number of notification alerts that the user currently has on their account. Only available on the logged in user and specific api calls.", optional=true )
 	public int numAlerts;
+	
+	@ApiField( "The membership tier of the user." )
+	public String membershipTier;
 }

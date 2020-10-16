@@ -29,6 +29,9 @@ public class RestTransaction extends RestBase
 	@ApiField( "The cashback billed to the merchant." )
 	public Double cashbackBilled;
 	
+	@ApiField( "The bonus cashback which comes from the publihser." )
+	public Double publihserBonusCashback;
+	
 	@ApiField( "The referral fee that was charged to the merchant." )
 	public Double referralFee;
 	
@@ -58,6 +61,9 @@ public class RestTransaction extends RestBase
 	
 	@ApiField( "The last 4 of the card that made the transaction." )
 	public String last4;
+	
+	@ApiField( "The membership tier of the user at the time of the transaction." )
+	public String membershipTier;
 	
 	@ApiField( value="Duplication source, only provided when the transaction has been removed as a duplicate.", optional=true )
 	public String duplicationSource;
