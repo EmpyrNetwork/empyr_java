@@ -171,6 +171,12 @@ public class ApiJacksonObjectMapper extends ObjectMapper
 						JsonProcessingException
 				{
 					long time = (jp.getLongValue() * 1000);
+					
+					if( jp.getValueAsString().length() > 12 )
+					{
+						time = jp.getLongValue();
+					}
+					
 					return new Date( time );
 				}
 			} );
