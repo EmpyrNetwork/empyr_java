@@ -9,7 +9,9 @@
 	<url>https://github.com/EmpyrNetwork/empyr_java</url>
 	
 	<properties>
-		<bintree.package>empyr_java</bintree.package>
+		<gpg.executable>gpg</gpg.executable>
+		<gpg.keyname>${env.GPG_KEY_NAME}</gpg.keyname>
+		<gpg.passphrase>${env.GPG_PASSPHRASE}</gpg.passphrase>
 	</properties>
 	
 	<licenses>
@@ -42,13 +44,12 @@
 	
 	<distributionManagement>
 		<repository>
-			<id>bintray-empyrnetwork-empyrnetwork</id>
-			<name>empyrnetwork-empyrnetwork</name>
-			<url>https://api.bintray.com/maven/empyrnetwork/empyrnetwork/${bintree.package}/;publish=1</url>
+			<id>ossrh</id>
+			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
 		</repository>
 		<snapshotRepository>
-			<id>ojo-snapshots</id>
-			<url>https://oss.jfrog.org/artifactory/oss-snapshot-local</url>
+			<id>ossrh</id>
+			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
 		</snapshotRepository>
 	</distributionManagement>
 
@@ -154,6 +155,34 @@
 							</execution>
 						</executions>
 					</plugin>
+				
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-gpg-plugin</artifactId>
+						<version>1.6</version>
+						<executions>
+							<execution>
+								<id>sign-artifacts</id>
+								<phase>verify</phase>
+								<goals>
+									<goal>sign</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				
+					<plugin>
+						<groupId>org.sonatype.plugins</groupId>
+						<artifactId>nexus-staging-maven-plugin</artifactId>
+						<version>1.6.8</version>
+						<extensions>true</extensions>
+						<configuration>
+							<serverId>ossrh</serverId>
+							<nexusUrl>https://oss.sonatype.org/</nexusUrl>
+							<autoReleaseAfterClose>true</autoReleaseAfterClose>
+						</configuration>
+					</plugin>
+					
 				</plugins>
 			</build>
 		</profile>
