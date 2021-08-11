@@ -2,7 +2,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.empyr</groupId>
 	<artifactId>client</artifactId>
-	<version>0.9.22</version>
+	<version>0.9.23-SNAPSHOT</version>
 	<name>Empyr Java Library</name>
 	<description>A simple library for interfacing with the Empyr API.</description>
 	<packaging>jar</packaging>
@@ -39,7 +39,7 @@
 		<connection>scm:git:https://github.com/EmpyrNetwork/empyr_java.git</connection>
 		<developerConnection>scm:git:git@github.com:EmpyrNetwork/empyr_java.git</developerConnection>
 		<url>https://github.com/EmpyrNetwork/empyr_java</url>
-		<tag>client-0.9.22</tag>
+		<tag>HEAD</tag>
 	</scm>
 	
 	<distributionManagement>
