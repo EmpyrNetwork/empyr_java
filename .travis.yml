@@ -4,11 +4,16 @@ install: "/bin/true"
 jdk:
 - openjdk8
 deploy:
-  provider: script
-  script: bash deploy.sh
-  skip_cleanup: true
-  on:
-    condition: $TRAVIS_BRANCH == "master" || -n $TRAVIS_TAG
+  - provider: script
+    script: bash deploy.sh
+    skip_cleanup: true
+    on:
+      branch: "master"
+  - provider: script
+    script: bash deploy.sh
+    skip_cleanup: true
+    on:
+      tags: true
 env:
   global:
   - secure: OOdP739UOHi7Kg1+78Rk2rtr2ClXS+kts0hIeKQLLIN362+dhxLNSJoLbHRdDEzuLZoY27zs8tL2OxnyIptXJ7Qv46kEvD4uKYt/eQD7J5baEjFIrhK92f2kyAwzUM2ufVZByMLthddRp4rrrGEr8ZV5SgYXj+SloP34+JYhxt2TPAx/NM0lrlvSfC9Dy+Esvfh39yV7OI1H6lGd6MdE162iotXg0J+pIup/vPR2hcAeiqh/uP1AgH/rMwBWzmPD9VLtRtTkOf5/amrUlwbOEbAtKnRw2Zx9PYWARuY0e99wpL9GicqX6g6WD4wce5neIxvbAVe5r2z+yrzJBwGml5XlD/QAvwg3gs/1y2nocco4se0DRVIxIHW79ekY1a0TerN2Ee/Dl5R8xdTVfcn2cU9swrelZEDhEDRujzAfKACGFPnhhrLow9UJejlW1Wm+4++lQpMehKRBvDmhuK4b4Po8dNwLw4hxzbC5FCIhCv0xq/BbUEtR0Y3iuXgq+y1LPWQqbj6vGOolnMt8Sy+GvbrfADtUHA1eqcvU1G2bbxJx0uPWOHf8nFx44DLyS698jdmPnmkOg9e25zYpRR/YwwnbLMyE2Hs4e+CQBlMY5uWayByAhSYqMjWwsTO6HGgtzVXvSqr3B9foRquQrV7dxVidPXd/wP2ShELvHQ4Q774=
