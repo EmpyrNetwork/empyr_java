@@ -1,4 +1,3 @@
-
 #!/bin/bash
 # expects variables to be set:
 # - OSSRH_USERNAME
