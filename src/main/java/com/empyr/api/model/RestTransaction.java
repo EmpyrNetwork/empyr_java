@@ -17,6 +17,14 @@ import com.empyr.api.annotations.Documented;
 @Documented( name="transaction", description="Represents a transaction at a venue." )
 public class RestTransaction extends RestBase
 {
+	public enum TransactionState {
+		MATCHED,			// Matched an offer, this was rewarded and/or billed
+		NOT_MATCHED,		// Didn't match an offer. Generally this shouldn't show up in statements, bills or hooks.
+		REMOVED,			// Never received a settlement so the transaction has been removed.
+		REMOVED_DUP,		// The transaction has been flagged as a duplicate and removed.
+		SUPPORT				// Unfortunately, something happened and we need customer support to look at this.
+	}
+	
 	@ApiField( "The id of the transaction." )
 	public long id;
 	
@@ -70,4 +78,7 @@ public class RestTransaction extends RestBase
 	
 	@ApiField( value="The redemptions that were applied to this transaction.", type=RestRedemption.class )
 	public List<RestRedemption> redemptions = new ArrayList<RestRedemption>();
+	
+	@ApiField( value="The state of the transaction." )
+	public TransactionState state;
 }
