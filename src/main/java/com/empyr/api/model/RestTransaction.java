@@ -52,7 +52,7 @@ public class RestTransaction extends RestBase
 	@ApiField( "The date that Mogl processed the transaction; Note that this will reset on CLEAR." )
 	public Date dateProcessed;
 
-	@ApiField( value="The potential reward for non-activated transactions which could have earned more if they were activated.", nullable=true )
+	@ApiField( value="The additional reward the user would have received if they activated.", nullable=true )
 	public String potentialReward;
 
 	@ApiField( value="Compact details about the venue.", nullable=true )
