@@ -55,6 +55,9 @@ public class RestTransaction extends RestBase
 	@ApiField( value="The additional reward the user would have received if they activated.", nullable=true )
 	public String potentialReward;
 
+	@ApiField( value="The actual reward the user has received since they did not activate.", nullable=true )
+	public String actualReward;
+
 	@ApiField( value="Compact details about the venue.", nullable=true )
 	public RestCompactBusiness venue;
 
