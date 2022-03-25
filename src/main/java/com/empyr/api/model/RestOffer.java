@@ -26,6 +26,9 @@ public class RestOffer extends RestBase
 	@ApiField( "An id assigned by the partner." )
 	public String partnerToken;
 	
+	@ApiField( value="The description for the offer.", nullable=true )
+	public String description;
+	
 	@ApiField( "The type of the reward value." )
 	public OfferRewardType rewardType;
 	
