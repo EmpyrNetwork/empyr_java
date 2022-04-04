@@ -48,7 +48,7 @@ public class EmpyrClient
 
 	private int autoRetryTimes = -1;
 	
-	private HttpRequestUtil requestUtil = new CommonsHttpRequestUtil();
+	private HttpRequestUtil requestUtil = new CommonsHttpRequestUtil( 10, 5 );
 	private RequestAdapter requestAdapter = new JacksonRequestAdapter();
 	
 	private List<ClientListener> listeners = new ArrayList<ClientListener>();
@@ -62,6 +62,13 @@ public class EmpyrClient
 	{
 		this.clientId = clientId;
 		this.clientSecret = clientSecret;
+	}
+	
+	public EmpyrClient( String clientId, String clientSecret, int maxConnections, int maxConnectionsPerHost )
+	{
+		this.clientId = clientId;
+		this.clientSecret = clientSecret;
+		requestUtil = new CommonsHttpRequestUtil( maxConnections, maxConnectionsPerHost );
 	}
 	
 	public void addListener( ClientListener cl )

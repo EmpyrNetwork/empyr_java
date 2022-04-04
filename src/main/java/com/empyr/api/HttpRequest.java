@@ -42,7 +42,7 @@ public class HttpRequest
 			if( entry.getValue() != null )
 			{
 				Object value = entry.getValue();
-				if( !(value instanceof FileUpload) && !(value.getClass().isArray()) )
+				if( !(value instanceof FileUpload) && !(value.getClass().isArray()) && !(value instanceof Iterable) )
 				{
 					value = String.valueOf( value );
 				}
@@ -72,7 +72,7 @@ public class HttpRequest
 			if( params[i+1] != null )
 			{
 				Object value = params[i + 1];
-				if( !(value instanceof FileUpload) && !(value.getClass().isArray()))
+				if( !(value instanceof FileUpload) && !(value.getClass().isArray()) && !(value instanceof Iterable) )
 				{
 					value = String.valueOf( value );
 				}
