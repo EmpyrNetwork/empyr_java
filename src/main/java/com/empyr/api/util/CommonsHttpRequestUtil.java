@@ -36,18 +36,18 @@ public class CommonsHttpRequestUtil implements HttpRequestUtil
 {
 	private static transient final Log log = LogFactory.getLog( CommonsHttpRequestUtil.class );
 	
-	private static MultiThreadedHttpConnectionManager connManager;
-	private static HttpClient client;
+	private MultiThreadedHttpConnectionManager connManager;
+	private HttpClient client;
 	
-	static
+	public CommonsHttpRequestUtil( int maxTotalConnections, int maxConnectionsPerHost )
 	{
 		connManager = new MultiThreadedHttpConnectionManager();
-		connManager.setMaxTotalConnections( 10 );
-		connManager.setMaxConnectionsPerHost( 5 );
+		connManager.setMaxTotalConnections( maxTotalConnections );
+		connManager.setMaxConnectionsPerHost( maxConnectionsPerHost );
 		
 		client = new HttpClient( connManager );
 	}
-	
+
 	private HttpMethod createMethod(
 			MethodType methodType,
 			String endPoint,
@@ -66,7 +66,7 @@ public class CommonsHttpRequestUtil implements HttpRequestUtil
 				if( entry.getValue() instanceof String )
 				{
 					pairs.add( new NameValuePair( entry.getKey(), (String)entry.getValue() ) );
-					stringParts.add( new StringPart( entry.getKey(), (String )entry.getValue() ) );
+					stringParts.add( new StringPart( entry.getKey(), (String)entry.getValue() ) );
 				}
 				else if( entry.getValue() instanceof FileUpload )
 				{
@@ -84,6 +84,15 @@ public class CommonsHttpRequestUtil implements HttpRequestUtil
 						stringParts.add( new StringPart( entry.getKey(), (String)Array.get( entry.getValue(), i ) ) );
 					}
 					
+				}
+				else if( entry.getValue() instanceof Iterable )
+				{
+					Iterable<Object> it = (Iterable<Object>)entry.getValue();
+					for( Object o : it )
+					{
+						pairs.add( new NameValuePair( entry.getKey(), String.valueOf( o ) ) );
+						stringParts.add( new StringPart( entry.getKey(), String.valueOf( o ) ) );
+					}
 				}
 				else
 				{
