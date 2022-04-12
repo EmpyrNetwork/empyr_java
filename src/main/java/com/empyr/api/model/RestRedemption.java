@@ -54,4 +54,7 @@ public class RestRedemption extends RestBase
 
 	@ApiField( value="The post dine survey link (if applicable).", optional=true )
 	public String surveyLink;
+	
+	@ApiField( value="The link status (can be ACTIVE or INACTIVE).  If ACTIVE, the offer remains activated for this user." )
+	public String linkStatus;
 }
