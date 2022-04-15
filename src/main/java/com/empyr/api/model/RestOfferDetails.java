@@ -55,6 +55,9 @@ public class RestOfferDetails extends RestBase
 	@ApiField( value="The maximum number of times a user can redeem an offer within the specified userRedemptionInterval.", nullable=true )
 	public Integer				maxUserRedemptionsPerInterval;
 	
+	@ApiField( value="The maximum number of times a user can redeem an offer regardless of interval.", nullable=true )
+	public Integer				maxTotalUserRedemptions;
+	
 	@ApiField( value="The maximum qualified spend that can be applied to an offer per interval (for example $500 of spend will be rewarded).", nullable=true )
 	public Double				maxQualifiedUserSpendPerInterval;
 	
