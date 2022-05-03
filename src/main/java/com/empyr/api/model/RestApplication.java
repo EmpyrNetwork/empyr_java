@@ -12,4 +12,7 @@ public class RestApplication extends RestBase
 {
 	@ApiField( "The id of this application." )
 	public Integer id;
+	
+	@ApiField( "The cardCode for this application." )
+	public String cardCode;
 }
