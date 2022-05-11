@@ -14,6 +14,8 @@ import com.empyr.api.annotations.Documented;
  * @author jcuzens
  *
  */
+// this prevents the IDE from throwing errors around the lack of auto ID generation
+@SuppressWarnings("serial")
 @Documented( name="transaction", description="Represents a transaction at a venue." )
 public class RestTransaction extends RestBase
 {
@@ -40,7 +42,7 @@ public class RestTransaction extends RestBase
 	@ApiField( "The bonus cashback which comes from the publihser." )
 	public Double publihserBonusCashback;
 	
-	@ApiField( "The referral fee that was charged to the merchant." )
+	@ApiField( value="The referral fee that was charged to the merchant.", nullable=true, optional=true )
 	public Double referralFee;
 	
 	@ApiField( "The date of the transaction." )
@@ -52,13 +54,13 @@ public class RestTransaction extends RestBase
 	@ApiField( "The date that Mogl processed the transaction; Note that this will reset on CLEAR." )
 	public Date dateProcessed;
 
-	@ApiField( value="The additional reward the user would have received if they activated.", nullable=true )
+	@ApiField( value="The additional reward the user would have received if they activated.", nullable=true, optional=true )
 	public Double potentialReward;
 
-	@ApiField( value="The actual reward the user has received since they did not activate.", nullable=true )
+	@ApiField( value="The actual reward the user has received since they did not activate.", nullable=true, optional=true )
 	public Double actualReward;
 
-	@ApiField( value="Compact details about the venue.", nullable=true )
+	@ApiField( value="Compact details about the venue.", nullable=true, optional=true )
 	public RestCompactBusiness venue;
 
 	@ApiField( "Compact details about the user." )
@@ -67,10 +69,10 @@ public class RestTransaction extends RestBase
 	@ApiField( "The id of the card that made the transaction." )
 	public long cardId;
 	
-	@ApiField( value="The settlement/clearing amount of the transaction.", nullable=true )
+	@ApiField( value="The settlement/clearing amount of the transaction.", nullable=true, optional=true )
 	public Double clearingAmount;
 	
-	@ApiField( value="The authorization amount of the transaction.", nullable=true )
+	@ApiField( value="The authorization amount of the transaction.", nullable=true, optional=true )
 	public Double authorizationAmount;
 	
 	@ApiField( "The last 4 of the card that made the transaction." )
@@ -79,7 +81,7 @@ public class RestTransaction extends RestBase
 	@ApiField( "The membership tier of the user at the time of the transaction." )
 	public String membershipTier;
 	
-	@ApiField( value="Duplication source, only provided when the transaction has been removed as a duplicate.", optional=true )
+	@ApiField( value="Duplication source, only provided when the transaction has been removed as a duplicate.", nullable=true, optional=true )
 	public String duplicationSource;
 	
 	@ApiField( value="The redemptions that were applied to this transaction.", type=RestRedemption.class )
