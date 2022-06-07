@@ -61,7 +61,7 @@ public class RestBusiness extends RestCompactBusiness
 	@ApiField( "The kind of acceptable attire at the venue." )
 	public String [] attire;
 	
-	@ApiField( "The MOGL accepted payment types at the venue." )
+	@ApiField( "The accepted payment types at the venue." )
 	public String [] acceptedCards;
 	
 	@ApiField( value="What they're known for.", nullable=true )

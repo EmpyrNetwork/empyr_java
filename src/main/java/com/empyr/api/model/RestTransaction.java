@@ -51,7 +51,7 @@ public class RestTransaction extends RestBase
 	@ApiField( "The reward datetime" )
 	public Date rewardTime;
 	
-	@ApiField( "The date that Mogl processed the transaction; Note that this will reset on CLEAR." )
+	@ApiField( "The date that the transaction processed; Note that this will reset on CLEAR." )
 	public Date dateProcessed;
 
 	@ApiField( value="The additional reward the user would have received if they activated.", nullable=true, optional=true )

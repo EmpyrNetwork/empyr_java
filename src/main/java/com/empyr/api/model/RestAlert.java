@@ -12,7 +12,7 @@ import com.empyr.api.annotations.Documented;
  * @author jcuzens
  *
  */
-@Documented( name="alert", description="Represents an alert in MOGL." )
+@Documented( name="alert", description="Represents an alert." )
 public class RestAlert
 {	
 	@ApiField( "The id of the target of this alert.")
