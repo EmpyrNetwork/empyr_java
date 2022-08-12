@@ -616,7 +616,7 @@ public class EmpyrClient
 		return r.getResponse();
 	}	
 	
-	private synchronized void refreshAccessToken()
+	public synchronized void refreshAccessToken()
 	{
 		OAuthResponse or = getAccessToken( "client_credentials", new HashMap<String,Object>() );
 		
