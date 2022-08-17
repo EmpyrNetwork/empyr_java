@@ -109,6 +109,6 @@ public class RestBusiness extends RestCompactBusiness
 	@ApiField( value="The chain that this business belongs to.", optional=true )
 	public RestChain chain;
 	
-	@ApiField( value="The merchant info for the venue.", nullable=true, optional=true)
+	@ApiField( value="The merchant info for the venue.", optional=true)
 	public RestMerchantInfo merchantInfo;
 }
