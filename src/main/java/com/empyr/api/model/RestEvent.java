@@ -23,6 +23,7 @@ public class RestEvent extends RestBase
 		CARD_STATUS,
 		HIDDEN_SUMMARY,
 		STATS_REPORT,
+		BUSINESS_REVIEWED,
 		BUSINESS_APPROVED
 	}
 	
@@ -45,5 +46,9 @@ public class RestEvent extends RestBase
 	public RestBusinessStatsReport statsReport;
 	
 	@ApiField( value="If the event was a BUSINESS_APPROVED this field will be populated.", type=RestBusiness.class )
-	public RestBusiness business;
+	public RestBusiness businessApproved;
+
+	@ApiField( value="If the event was a BUSINESS_REVIEWED this field will be populated.", type=RestBusiness.class )
+	public RestBusiness businessReviewed;
+	
 }
