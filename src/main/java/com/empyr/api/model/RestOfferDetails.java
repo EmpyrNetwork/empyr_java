@@ -78,6 +78,9 @@ public class RestOfferDetails extends RestBase
 	@ApiField( value="The budget for the offer. Once the budget has been exceeded the offer will no longer apply.", nullable=true )
 	public Integer				budget = 0;
 	
+	@ApiField( value="The spent budget for the offer. This is the sum of (cashback amout + referral fees) .", nullable=true, optional=true  )
+	public Double				spentBudget;
+	
 	@ApiField( value="If specified this allows an offer to apply after the offer has expired. Typically this will be the same as the offer end date.", nullable=true )
 	public Date					maxRedeemDate;
 	
