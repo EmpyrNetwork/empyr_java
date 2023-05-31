@@ -28,6 +28,8 @@ import org.apache.commons.httpclient.methods.multipart.StringPart;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
+import com.empyr.api.exceptions.GatewayTimeoutException;
+
 /**
  * @author jcuzens
  *
@@ -168,8 +170,13 @@ public class CommonsHttpRequestUtil implements HttpRequestUtil
 			
 			int statusCode = client.executeMethod( method );
 			result = convertStreamToString( method.getResponseBodyAsStream() );
-	
-			if( statusCode < 200 || statusCode > 299 )
+			
+			if( statusCode == 504 )
+			{
+				log.warn( "Gateway timeout: " + statusCode + "\n" + result );
+				throw new GatewayTimeoutException( result );
+			}
+			else if( statusCode < 200 || statusCode > 299 )
 			{
 				log.debug( "Unexpected response: " + statusCode + "\n" + result );
 			}
