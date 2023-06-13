@@ -8,7 +8,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.empyr.api.exceptions.GatewayTimeoutException;
 import com.empyr.api.exceptions.LoginException;
 import com.empyr.api.model.OAuthResponse;
 import com.empyr.api.model.RestApplication;
@@ -600,18 +599,6 @@ public class EmpyrClient
 			else if( response.meta.code >= 400 )
 			{
 				validationError( response.meta.error, response.meta.errorDetails );
-			}
-		}
-		catch( GatewayTimeoutException e )
-		{
-			if( numRetries > 0 )
-			{
-				executeRequest( r, --numRetries );
-			}
-			else
-			{
-				connectionError( e.getMessage() );
-				throw e;
 			}
 		}
 		catch( RuntimeException e )
