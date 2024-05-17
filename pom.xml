@@ -94,6 +94,28 @@
 				</executions>
 			</plugin>
 			<plugin>
+				<groupId>org.owasp</groupId>
+				<artifactId>dependency-check-maven</artifactId>
+				<version>9.1.0</version>
+				<configuration>
+					<formats>
+						<format>HTML</format>
+						<format>CSV</format>
+					</formats>
+					<failBuildOnCVSS>8</failBuildOnCVSS>
+					<skipArtifactType>war</skipArtifactType>
+					<retireJsAnalyzerEnabled>false</retireJsAnalyzerEnabled>
+					<nvdApiKey>${env.NVD_API_KEY}</nvdApiKey>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>check</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
 				<artifactId>maven-assembly-plugin</artifactId>
 				<configuration>
 					<descriptorRefs>
